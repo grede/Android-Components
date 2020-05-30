@@ -27,7 +27,7 @@ bintray {
         configurations = ['archives']
         desc = moduleConfig.getProperty("module_description")
         websiteUrl = moduleConfig.getProperty("website_url")
-        vcsUrl = 'git@github.com:grede/Android-Components.git'
+        vcsUrl = 'https://github.com/grede/Android-Components.git'
         licenses = ["Apache-2.0"]
         publish = true
         publicDownloadNumbers = true
