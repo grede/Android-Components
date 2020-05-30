@@ -1,0 +1,2 @@
+apply from: '../script/bintray_publish.gradle'
+apply from: '../script/install.gradle'

@@ -1,0 +1,35 @@
+apply plugin: 'com.jfrog.bintray'
+
+Properties moduleConfig = new Properties()
+moduleConfig.load(new FileInputStream(project.file("module_config.properties")))
+
+version = moduleConfig.getProperty("module_version")
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+Properties bintrayAuth = new Properties()
+bintrayAuth.load(new FileInputStream(rootProject.file("bintray_auth.properties")))
+
+bintray {
+    user = bintrayAuth.getProperty("bintray.user")
+    key = bintrayAuth.getProperty("bintray.apikey")
+
+    pkg {
+        repo = 'maven'
+        name = "app.xorium.androidcomponents.${moduleConfig.getProperty("module_name")}"
+        configurations = ['archives']
+        desc = moduleConfig.getProperty("module_description")
+        websiteUrl = 'https://github.com/grede/ViewHolderControllerAdapter'
+        vcsUrl = 'git@github.com:grede/Android-Components.git'
+        licenses = ["Apache-2.0"]
+        publish = true
+        publicDownloadNumbers = true
+    }
+}

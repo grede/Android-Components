@@ -1,0 +1,42 @@
+apply plugin: 'com.github.dcendents.android-maven'
+
+Properties moduleConfig = new Properties()
+moduleConfig.load(new FileInputStream(project.file("module_config.properties")))
+
+group = "app.xorium.androidcomponents.${moduleConfig.getProperty("module_name")}"
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                groupId "app.xorium.androidcomponents.${moduleConfig.getProperty("module_name")}"
+                artifactId moduleConfig.getProperty("module_name")
+                name moduleConfig.getProperty("module_name")
+                description moduleConfig.getProperty("module_description")
+                url moduleConfig.getProperty("website_url")
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'krozhenkov'
+                        name 'Kirill Rozhenkov'
+                        email 'gredex0r@gmail.com'
+                    }
+                }
+
+                scm {
+                    connection 'https://github.com/grede/Android-Components.git'
+                    developerConnection 'https://github.com/grede/Android-Components.git'
+                    url moduleConfig.getProperty("website_url")
+                }
+            }
+        }
+    }
+}
