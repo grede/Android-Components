@@ -26,7 +26,7 @@ bintray {
         name = "app.xorium.androidcomponents.${moduleConfig.getProperty("module_name")}"
         configurations = ['archives']
         desc = moduleConfig.getProperty("module_description")
-        websiteUrl = 'https://github.com/grede/ViewHolderControllerAdapter'
+        websiteUrl = moduleConfig.getProperty("website_url")
         vcsUrl = 'git@github.com:grede/Android-Components.git'
         licenses = ["Apache-2.0"]
         publish = true
