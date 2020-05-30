@@ -1,0 +1,16 @@
+apply plugin: 'com.android.library'
+
+Properties moduleConfig = new Properties()
+moduleConfig.load(new FileInputStream(project.file("module_config.properties")))
+
+android {
+    compileSdkVersion moduleConfig.getProperty("module_compile_sdk").toInteger()
+    buildToolsVersion moduleConfig.getProperty("module_build_tools")
+
+    defaultConfig {
+        minSdkVersion moduleConfig.getProperty("module_min_sdk").toInteger()
+        targetSdkVersion moduleConfig.getProperty("module_target_sdk").toInteger()
+        versionCode moduleConfig.getProperty("module_version_code").toInteger()
+        versionName moduleConfig.getProperty("module_version")
+    }
+}
