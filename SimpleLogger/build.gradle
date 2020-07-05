@@ -1,0 +1,6 @@
+apply from: '../script/module_android_config.gradle'
+apply from: '../script/publish.gradle'
+
+dependencies {
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
