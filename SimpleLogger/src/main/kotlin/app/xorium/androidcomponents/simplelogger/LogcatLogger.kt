@@ -16,7 +16,7 @@ class LogcatLogger : Logger {
         Log.w(tag, msg)
     }
 
-    override fun logError(tag: String, msg: String, error: Throwable?) {
+    override fun logError(tag: String, msg: String?, error: Throwable?) {
         Log.e(tag, msg, error)
     }
 }

@@ -5,5 +5,5 @@ interface Logger {
     fun logVerbose(tag: String, msg: String)
     fun logDebug(tag: String, msg: String)
     fun logWarn(tag: String, msg: String)
-    fun logError(tag: String, msg: String, error: Throwable? = null)
+    fun logError(tag: String, msg: String? = null, error: Throwable? = null)
 }

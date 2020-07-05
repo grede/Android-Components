@@ -28,7 +28,7 @@ object SimpleLogger: Logger {
         getLogger().logWarn(tag, msg)
     }
 
-    override fun logError(tag: String, msg: String, error: Throwable?) {
+    override fun logError(tag: String, msg: String?, error: Throwable?) {
         getLogger().logError(tag, msg, error)
     }
 }
@@ -56,7 +56,7 @@ private class LoggerImpl(
         }
     }
 
-    override fun logError(tag: String, msg: String, error: Throwable?) {
+    override fun logError(tag: String, msg: String?, error: Throwable?) {
         if (level.value <= LogLevel.Error.value) {
             loggers.forEach { it.logError(tag, msg, error) }
         }
