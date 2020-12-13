@@ -1,3 +1,4 @@
+include ':Consumable'
 rootProject.name='Android-Components'
 include ':ViewState'
 include ':ViewExtensions'

@@ -27,7 +27,7 @@ Android-Components is a set of ready-to-use components, useful for Android Devel
     module_min_sdk=16
     module_target_sdk=29
     module_description=<'Short description of the module'>
-    website_url=<'Url to the project's github>
+    website_url=<'Url to the project's github'>
     
 ## Publish a new version of the module
 
